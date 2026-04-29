@@ -8,7 +8,9 @@ export default function Menu() {
   useEffect(() => {
     fetch("/api/wines")
       .then(res => res.json())
-      .then(data => setWines(data.filter(w => w.quantity > 0)));
+      .then(data =>
+        setWines(data.filter(w => w.status === "available"))
+      );
   }, []);
 
   return (
@@ -19,7 +21,16 @@ export default function Menu() {
         {wines.map(w => (
           <div className="card" key={w.id}>
             <h3>{w.name}</h3>
-            <p>€ {w.price}</p>
+
+            <p>{w.type} • {w.year}</p>
+
+            <p style={{ fontWeight: "bold" }}>
+              € {w.sellPrice}
+            </p>
+
+            <small>
+              {w.cellar} • {w.region}
+            </small>
           </div>
         ))}
       </div>

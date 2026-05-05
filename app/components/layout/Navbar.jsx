@@ -1,36 +1,55 @@
 "use client";
-
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-
+ 
+import { useAuth } from "../../../lib/useAuth";
+import { useRouter } from "next/navigation";
+ 
 export default function Navbar() {
-  const path = usePathname();
-
+  const { user, logout } = useAuth();
+  const router = useRouter();
+ 
   return (
-    <div className="navbar">
-
-      <div className="nav-left">
-        🍷 Wine Manager
+    <nav className="navbar">
+      <div className="navbar-brand" onClick={() => router.push("/")}>
+        🍷 <span>Wine Manager</span>
       </div>
-
-      <div className="nav-center">
-        <Link className={path === "/admin" ? "active" : ""} href="/admin">
-          Dashboard
-        </Link>
-
-        <Link className={path === "/admin/wines" ? "active" : ""} href="/admin/wine">
-          Vini
-        </Link>
-
-        <Link href="/menu">
-          Menu
-        </Link>
+ 
+      <div className="navbar-links">
+        {user?.role === "admin" && (
+          <>
+            <button
+              className="nav-link"
+              onClick={() => router.push("/admin")}
+            >
+              Dashboard
+            </button>
+            <button
+              className="nav-link"
+              onClick={() => router.push("/admin/wine")}
+            >
+              Vini
+            </button>
+             <button
+              className="nav-link"
+              onClick={() => router.push("/admin/")}
+            >
+              Users
+            </button>
+          </>
+        )}
       </div>
-
-      <div className="nav-right">
-        👤 Admin
+ 
+      <div className="navbar-user">
+        {user && (
+          <>
+            <span className="navbar-username">
+              {user.role === "admin" ? "🔐" : "👤"} {user.username}
+            </span>
+            <button className="btn btn-logout" onClick={logout}>
+              Esci
+            </button>
+          </>
+        )}
       </div>
-
-    </div>
+    </nav>
   );
 }

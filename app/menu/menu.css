@@ -1,0 +1,212 @@
+/* ===== PAGE ===== */
+.menu-page {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #f0ece4;
+}
+
+/* ===== HEADER ===== */
+.menu-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 24px;
+  background: #0f0f0f;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+.menu-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu-icon {
+  font-size: 28px;
+}
+
+.menu-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #c9a84c;
+}
+
+.menu-subtitle {
+  font-size: 12px;
+  color: #555;
+}
+
+.menu-back {
+  background: none;
+  border: 1px solid #2a2a2a;
+  color: #666;
+  border-radius: 8px;
+  padding: 7px 14px;
+  cursor: pointer;
+}
+
+/* ===== CONTAINER ===== */
+.menu-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* ===== SEARCH ===== */
+.menu-search {
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 10px;
+  border: 1px solid #1e1e1e;
+  background: #111;
+  color: white;
+  margin-bottom: 16px;
+}
+
+/* ===== FILTERS ===== */
+.menu-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.filter-btn {
+  padding: 7px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  background: #141414;
+  color: #666;
+  border: 1px solid #2a2a2a;
+}
+
+.filter-btn.active {
+  background: #8b1a2c;
+  color: white;
+  border-color: #8b1a2c;
+  font-weight: 700;
+}
+
+/* ===== CATEGORY ===== */
+.category-block {
+  margin-bottom: 40px;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.category-header h2 {
+  font-size: 16px;
+  color: #888;
+}
+
+.category-header .line {
+  flex: 1;
+  height: 1px;
+  background: #1e1e1e;
+}
+
+.category-header span {
+  font-size: 12px;
+  color: #444;
+}
+
+/* ===== WINE LIST ===== */
+.wine-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ===== CARD ===== */
+.wine-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding: 16px 20px;
+  border-radius: 14px;
+
+  background: #111;
+  border: 1px solid #1e1e1e;
+
+  transition: border 0.15s;
+}
+
+.wine-card:hover {
+  border-color: #2a2a2a;
+}
+
+/* ===== INFO ===== */
+.wine-info {
+  flex: 1;
+}
+
+.wine-header {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+}
+
+.wine-name {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.wine-meta {
+  color: #666;
+  font-size: 14px;
+}
+
+.wine-desc {
+  color: #555;
+  font-size: 13px;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+/* ===== PRICE ===== */
+.wine-price {
+  text-align: right;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 800;
+  color: #c9a84c;
+}
+
+.price-sub {
+  font-size: 11px;
+  color: #444;
+}
+
+/* ===== EMPTY ===== */
+.empty {
+  text-align: center;
+  padding: 60px 0;
+  color: #444;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .wine-card {
+    flex-direction: column;
+  }
+
+  .wine-price {
+    text-align: left;
+    margin-top: 10px;
+  }
+}

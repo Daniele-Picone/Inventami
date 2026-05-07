@@ -49,26 +49,63 @@ export async function POST(req) {
 
 export async function PUT(req) {
   try {
-    const updated = await req.json();
+    const updated =
+      await req.json();
 
     wines = wines.map((w) =>
       w.id === updated.id
         ? {
             ...w,
             ...updated,
-            year: updated.year ? Number(updated.year) : "",
-            purchasePrice: updated.purchasePrice
-              ? Number(updated.purchasePrice)
-              : 0,
-            sellPrice: updated.sellPrice ? Number(updated.sellPrice) : 0,
+
+            year:
+              updated.year
+                ? Number(
+                    updated.year
+                  )
+                : "",
+
+            purchasePrice:
+              updated.purchasePrice
+                ? Number(
+                    updated.purchasePrice
+                  )
+                : 0,
+
+            sellPrice:
+              updated.sellPrice
+                ? Number(
+                    updated.sellPrice
+                  )
+                : 0,
+
+            // TYPE RESTA LOWERCASE
+            type:
+              updated.type?.trim() ||
+              "",
+
+            // NORMALIZZA
+            country:
+              updated.country
+                ?.trim()
+                .toUpperCase() || "",
+
+            region:
+              updated.region
+                ?.trim()
+                .toUpperCase() || "",
           }
         : w
     );
 
     return Response.json(updated);
+
   } catch (err) {
     return Response.json(
-      { error: "Errore aggiornamento vino" },
+      {
+        error:
+          "Errore aggiornamento vino",
+      },
       { status: 500 }
     );
   }

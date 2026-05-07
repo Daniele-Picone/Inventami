@@ -37,11 +37,11 @@ export default function WineRow({
         disabled={dis}
         onChange={(e) => onChange(w.id, "type", e.target.value)}
       >
-        <option value="">Tipo</option>
+     
         <option value="bianco">Bianco</option>
         <option value="rosso">Rosso</option>
         <option value="rosato">Rosato</option>
-        <option value="bollicine">Bollicine</option>
+        <option value="bollicina">Bollicine</option>
         <option value="dolce">Dolce</option>
       </select>
       <select
